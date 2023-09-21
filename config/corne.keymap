@@ -1,0 +1,104 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+// Layers
+#define DEFAULT 0
+#define NUM 1
+#define SYM 2
+#define FUNC 3
+#define ARROW 4
+#define MOUSE 5
+#define CONNECTION 6
+
+// Behavior Overrides
+//&ht {
+  //tapping-term-ms = <200>;
+  //flavor = "hold-preferred";
+//};
+
+/ {
+  //combos {
+  //};
+
+  //macros {
+  //};
+
+  behaviors {
+    td_ctrl_ralt: tap_dance_control_rightalt {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_CONTROL_RIGHTALT";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp LCTRL>, <&sk RALT>;
+    };
+  };
+
+  keymap {
+    compatible = "zmk,keymap";
+
+    default_layer {
+      bindings = <
+        &none &kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P &none
+        &none &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &kp SEMI &none
+        &none &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp FSLH &none
+        &mt LGUI ESC &kp LSHFT &td_ctrl_ralt &kp RET &kp SPACE &to NUM
+      >;
+    };
+
+    num_layer {
+      bindings = <
+        &none &kp LBKT &kp N7 &kp N8 &kp N9 &kp RBKT &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN &kp C_NEXT &kp BSPC &none
+        &none &kp BSLH &kp N4 &kp N5 &kp N6 &kp EQUAL &kp LSHFT &kp LCTRL &kp LGUI &kp LALT &kp SQT &none
+        &none &kp GRAVE &kp N1 &kp N2 &kp N3 &kp MINUS &to CONNECTION &to SYM &to FUNC &to ARROW &kp C_PP &none
+        &to DEFAULT &kp N0 &kp TAB &kp RET &kp SPACE &kp BSPC
+      >;
+    };
+
+    sym_layer {
+      bindings = < 
+        &none &kp LBRC &kp AMPS &kp ASTRK &kp LPAR &kp RBRC &none &none &none &none &kp BSPC &none
+        &none &kp PIPE &kp DLLR &kp PRCNT &kp CARET &kp PLUS &kp LSHFT &kp LCTRL &kp LGUI &kp LALT &kp DQT &none
+        &none &kp TILDE &kp EXCL &kp AT &kp HASH &kp UNDER &none &none &none &none &kp C_MUTE &none
+        &to DEFAULT &kp RPAR &kp TAB &kp RET &kp SPACE &kp BSPC
+      >;
+    };
+
+    func_layer {
+      bindings =<
+        &none &kp F12 &kp F7 &kp F8 &kp F9 &kp PSCRN &none &none &none &none &kp BSPC &none
+        &none &kp F11 &kp F4 &kp F5 &kp F6 &kp SLCK &kp LSHFT &kp LCTRL &kp LGUI &kp LALT &none &none
+        &none &kp F10 &kp F1 &kp F2 &kp F3 &kp C_PP &none &none &none &none &none &none
+        &to DEFAULT &none &kp TAB &kp RET &kp SPACE &kp BSPC
+      >;
+    };
+
+    arrow_layer {
+      bindings = <
+        &none &none &none &none &none &none &key_repeat &kp C_AC_PASTE &kp C_AC_COPY &kp C_AC_CUT &kp C_AC_UNDO &none
+        &none &none &kp LALT &kp LGUI &kp LCTRL &kp LSHFT &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp CAPS &none
+        &none &none &none &none &none &none &kp HOME &kp PG_DN &kp PG_UP &kp INS &kp END &none
+        &to DEFAULT &none &kp TAB &kp RET &kp SPACE &kp BSPC
+      >;
+    };
+
+    mouse_layer {
+      bindings = <
+        &none &none &none &none &none &none &none &none &none &none &none &none
+        &none &none &none &none &none &none &none &none &none &none &none &none
+        &none &none &none &none &none &none &none &none &none &none &none &none
+        &to DEFAULT &none &kp TAB &kp RET &kp SPACE &kp BSPC
+      >;
+    };
+
+    connection_layer {
+      bindings = <
+        &none &sys_reset &bt BT_PRV &bt BT_CLR &bt BT_NXT &none &none &none &none &none &sys_reset &none
+        &none &none &bt BT_SEL 3 &bt BT_SEL 4 &none &out OUT_TOG &none &none &none &none &none &none
+        &none &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &none &none &none &none &none &none &none
+        &to DEFAULT &none &kp TAB &kp RET &kp SPACE &kp BSPC
+      >;
+    };
+  };
+};
