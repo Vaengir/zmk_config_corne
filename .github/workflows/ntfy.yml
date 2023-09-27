@@ -17,7 +17,7 @@ jobs:
           -u ${{ secrets.NTFY_CRED }} \
           -H "Title: ZMK compiled successfully" \
           -H "Content-Type: text/plain" \
-          -d $'Repo: ${{ github.repository }}\nCommit: ${{ github.sha }}\nRef: ${{ github.ref }}\nStatus: ${{ job.status}}' \
+          -d $'Repo: ${{ github.repository }}\nCommit: ${{ github.sha }}\nRef: ${{ github.ref }}\nStatus: ${{ github.event.workflow_run.conclusion }}' \
           ${{ secrets.NTFY_URL }}
   on-failure:
     runs-on: ubuntu-latest
@@ -29,5 +29,5 @@ jobs:
           -u ${{ secrets.NTFY_CRED }} \
           -H "Title: ZMK Compilation failed" \
           -H "Content-Type: text/plain" \
-          -d $'Repo: ${{ github.repository }}\nCommit: ${{ github.sha }}\nRef: ${{ github.ref }}\nStatus: ${{ job.status}}' \
+          -d $'Repo: ${{ github.repository }}\nCommit: ${{ github.sha }}\nRef: ${{ github.ref }}\nStatus: ${{ github.event.workflow_run.conclusion }}' \
           ${{ secrets.NTFY_URL }}
