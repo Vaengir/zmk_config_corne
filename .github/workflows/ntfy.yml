@@ -2,7 +2,7 @@ name: Ntfy-Notification
 
 on:
   workflow_run:
-    workflows: [Build ZMK-Firmware]
+    workflows: [Create Release]
     types:
       - completed
       

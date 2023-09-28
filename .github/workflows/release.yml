@@ -1,0 +1,25 @@
+name: Create Release
+
+on:
+  workflow_run:
+    workflows: [Build ZMK-Firmware]
+    types:
+      - completed
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: $FILE_NAME.tex
+
+      - name: Create Release
+        id: create_release
+        uses: ncipollo/release-action@v1
+        with:
+          generateReleaseNotes: true
+          artifacts: "build/artifacts/firmware"

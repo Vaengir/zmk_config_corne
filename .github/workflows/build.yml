@@ -1,6 +1,9 @@
 name: Build ZMK-Firmware
   
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+    tags:
+      - 'v*.*'
 
 jobs:
   build:
