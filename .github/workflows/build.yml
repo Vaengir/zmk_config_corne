@@ -16,12 +16,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: firmware
-      - name: LS Command
-        run: |
-          ls ${{ github.workspace }}
       - name: Create Release
         id: create_release
         uses: ncipollo/release-action@v1
         with:
           generateReleaseNotes: true
-          artifacts: "build/artifacts/firmware"
+          artifacts: "/home/runner/work/zmk_config_corne/zml_config_corne/corne_left-nice_nano_v2-zmk.uf2, /home/runner/work/zmk_config_corne/zml_config_corne/corne_right-nice_nano_v2-zmk.uf2"
