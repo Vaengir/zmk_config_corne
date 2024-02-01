@@ -58,16 +58,16 @@
 
     sym_layer {
       bindings = <
-        &none &kp LBRC &kp AMPS &kp ASTRK &kp LPAR &kp RBRC &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN &kp C_NEXT &kp BSPC &none
-        &none &kp PIPE &kp DLLR &kp PRCNT &kp CARET &kp PLUS &kp LSHFT &kp LCTRL &kp LGUI &kp LALT &kp DQT &none
-        &none &kp TILDE &kp EXCL &kp AT &kp HASH &kp RPAR &none &none &none &none &kp C_MUTE &none
+        &none &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS &kp ASTRK &kp LPAR &kp RPAR &none
+        &none &kp PIPE &kp LBKT &kp LBRC &kp LPAR &kp PLUS &none &kp RPAR &kp RBRC &kp RBKT &kp DQT &none
+        &none &none &none &none &none &none &none &none &none &none &kp C_MUTE &none
         &kp UNDER &to DEFAULT &kp TAB &kp RET &kp SPACE &to NUM
       >;
     };
 
     func_layer {
       bindings =<
-        &none &kp F12 &kp F7 &kp F8 &kp F9 &kp PSCRN &none &none &none &none &kp BSPC &none
+        &none &kp F12 &kp F7 &kp F8 &kp F9 &kp PSCRN &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN &kp C_NEXT &kp BSPC &none
         &none &kp F11 &kp F4 &kp F5 &kp F6 &kp SLCK &kp LSHFT &kp LCTRL &kp LGUI &kp LALT &none &none
         &none &kp F10 &kp F1 &kp F2 &kp F3 &kp C_PP &none &none &none &none &none &none
         &none &to DEFAULT &kp TAB &kp RET &kp SPACE &to NUM
