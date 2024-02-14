@@ -60,7 +60,7 @@
       bindings = <
         &none &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS &kp ASTRK &kp LPAR &kp RPAR &none
         &none &kp PIPE &kp LBKT &kp LBRC &kp LPAR &kp PLUS &none &kp RPAR &kp RBRC &kp RBKT &kp DQT &none
-        &none &none &none &none &none &none &none &none &none &none &kp C_MUTE &none
+        &none &kp TILDE &none &none &none &none &none &none &none &none &kp C_MUTE &none
         &kp UNDER &to DEFAULT &kp TAB &kp RET &kp SPACE &to NUM
       >;
     };
